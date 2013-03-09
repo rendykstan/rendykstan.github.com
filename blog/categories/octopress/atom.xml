@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Product Management]]></title>
   <link href="http://rendykstan.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://rendykstan.github.com/"/>
-  <updated>2013-03-09T20:33:29+08:00</updated>
+  <updated>2013-03-09T20:39:16+08:00</updated>
   <id>http://rendykstan.github.com/</id>
   <author>
     <name><![CDATA[Rendy Tan]]></name>
@@ -18,7 +18,7 @@
     <link href="http://rendykstan.github.com/blog/2013/03/09/creating-my-github-pages-blog/"/>
     <updated>2013-03-09T18:57:00+08:00</updated>
     <id>http://rendykstan.github.com/blog/2013/03/09/creating-my-github-pages-blog</id>
-    <content type="html"><![CDATA[<p>Hi there, let me introduce myself. I am Rendy, currently working at <a href="http://humannetworklabs.com">Human Network Labs</a>. We help connect me, you and everything around us with my precise positioning technology. Ever since Github introduced Pages, I wanted to start my product management and technology blog. Today I finally found sometime to work on it.</p>
+    <content type="html"><![CDATA[<p>Hi there, let me introduce myself. I am Rendy, currently working at <a href="http://humannetworklabs.com">Human Network Labs</a>. We help connect me, you and everything around us with my precise positioning technology. Ever since Github introduced Pages, I wanted to start my product management and technology blog. Today I finally found some time to work on it.</p>
 
 <p>One of the ways to create Github Pages is to use Jekyll, a static site generator that generates a static version of the blog. Instead of using a dynamic scripting language (such as PHP, Python) that renders your blog posts as you load the website. Jekyll generate an html only version of your site.</p>
 
@@ -46,7 +46,7 @@
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>ravi@taraka:sudo gem install RedCloth
-</span><span class='line'>[sudo] password for kuba:
+</span><span class='line'>[sudo] password for ravi:
 </span><span class='line'>Building native extensions.  This could take a while...
 </span><span class='line'>ERROR:  Error installing RedCloth:&lt;/p>
 </span><span class='line'>
@@ -71,7 +71,7 @@
 
 <p>To get started with Octopress, you need to install Git and Ruby. If you are not a Ruby programmer I will recommed the light-weight and more flexible rbenv instead of RVM.</p>
 
-<p>This is how a blog post look like.</p>
+<p>This is how a blog post look like in Jekyll:</p>
 
 <h2><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -94,7 +94,7 @@
 </span><span class='line'>
 </span><span class='line'>&lt;p>Simple markdown syntax. &lt;em>italic&lt;/em>, &lt;strong>bold&lt;/strong>, &lt;a href="http://github.com">click here&lt;/a>, #header1, ##header2 etc.</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>To conclude a day's work. I highly recommend all programmers who have in mind to showcare their work to be on Github Pages.</p>
+<p>To conclude a day's work. I highly recommend all programmers who have interest to showcare their work to be on Github Pages.</p>
 ]]></content>
   </entry>
   
