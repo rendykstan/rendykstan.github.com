@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Github Pages | Product Management]]></title>
   <link href="http://rendykstan.github.com/blog/categories/github-pages/atom.xml" rel="self"/>
   <link href="http://rendykstan.github.com/"/>
-  <updated>2013-03-09T20:39:16+08:00</updated>
+  <updated>2013-03-09T20:40:47+08:00</updated>
   <id>http://rendykstan.github.com/</id>
   <author>
     <name><![CDATA[Rendy Tan]]></name>
@@ -18,7 +18,7 @@
     <link href="http://rendykstan.github.com/blog/2013/03/09/creating-my-github-pages-blog/"/>
     <updated>2013-03-09T18:57:00+08:00</updated>
     <id>http://rendykstan.github.com/blog/2013/03/09/creating-my-github-pages-blog</id>
-    <content type="html"><![CDATA[<p>Hi there, let me introduce myself. I am Rendy, currently working at <a href="http://humannetworklabs.com">Human Network Labs</a>. We help connect me, you and everything around us with my precise positioning technology. Ever since Github introduced Pages, I wanted to start my product management and technology blog. Today I finally found some time to work on it.</p>
+    <content type="html"><![CDATA[<p>Hi there, let me introduce myself. I am Rendy, currently working at <a href="http://humannetworklabs.com">Human Network Labs</a>. We help connect me, you and everything around us with my precise positioning technology. Ever since Github introduced <a href="http://pages.github.com/">Pages</a>, I wanted to start my product management and technology blog. Today I finally found some time to work on it.</p>
 
 <p>One of the ways to create Github Pages is to use Jekyll, a static site generator that generates a static version of the blog. Instead of using a dynamic scripting language (such as PHP, Python) that renders your blog posts as you load the website. Jekyll generate an html only version of your site.</p>
 
