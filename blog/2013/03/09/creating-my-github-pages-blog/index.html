@@ -3,10 +3,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Product Management</title>
+	<title>Creating My Github Pages Blog with Octopress - Product Management</title>
     <meta name="author" content="Rendy Tan">
     
-	<meta name="description" content="Published on: Mar 9th, 2013 Tags: Github Pages, Octopress Hi there, let me introduce myself. I am Rendy, currently working at Human Network Labs. We &hellip;">
+	<meta name="description" content="Hi there, let me introduce myself. I am Rendy, currently working at Human Network Labs. We help connect me, you and everything around us with my &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -100,60 +100,96 @@
 <div id="toload">
 <!-- begin toload --> 
     <div id="content" class="inner">
-        
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/03/09/creating-my-github-pages-blog/">
-		
-			Creating My Github Pages Blog With Octopress</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-09T18:57:00+08:00" pubdate data-updated="true">Mar 9<span>th</span>, 2013</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/github-pages/'>Github Pages</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>
-
-
-</div>
-    </div>
-		<p>Hi there, let me introduce myself. I am Rendy, currently working at <a href="http://humannetworklabs.com">Human Network Labs</a>. We help connect me, you and everything around us with my precise positioning technology. Ever since Github introduced Pages, I wanted to start my product management and technology blog. Today I finally found sometime to work on it.</p>
+        <article class="post">
+	<h2 class="title">Creating My Github Pages Blog With Octopress</h2>
+	<div class="entry-content"><p>Hi there, let me introduce myself. I am Rendy, currently working at <a href="http://humannetworklabs.com">Human Network Labs</a>. We help connect me, you and everything around us with my precise positioning technology. Ever since Github introduced Pages, I wanted to start my product management and technology blog. Today I finally found sometime to work on it.</p>
 
 <p>One of the ways to create Github Pages is to use Jekyll, a static site generator that generates a static version of the blog. Instead of using a dynamic scripting language (such as PHP, Python) that renders your blog posts as you load the website. Jekyll generate an html only version of your site.</p>
 
 <p>Since I am new to Jekyll, I did a quick search for ways to get started and I found <a href="http://octopress.org/">Octopress</a> a blogging framework for Github Pages! Very well <a href="http://octopress.org/docs/">documented</a>, following the instructions are a breeze except for one problem during <strong>bundle install</strong>.</p>
 
+<!-- more -->
 
-		
-		<a href="/blog/2013/03/09/creating-my-github-pages-blog/" class="more-link">Read on &rarr;</a>
-	</div>
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ravi@taraka:sudo gem install RedCloth
+</span><span class='line'>[sudo] password for kuba: 
+</span><span class='line'>Building native extensions.  This could take a while...
+</span><span class='line'>ERROR:  Error installing RedCloth:
+</span><span class='line'>    ERROR: Failed to build gem native extension.
+</span><span class='line'>
+</span><span class='line'>        /usr/bin/ruby1.9.1 extconf.rb
+</span><span class='line'>/usr/local/lib/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require': cannot load     such file -- mkmf (LoadError)
+</span><span class='line'>    from /usr/local/lib/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+</span><span class='line'>    from extconf.rb:1:in `&lt;main>'
+</span><span class='line'>
+</span><span class='line'>Gem files will remain installed in /usr/lib/ruby/gems/1.9.1/gems/RedCloth-4.2.9 for     inspection.
+</span><span class='line'>Results logged to /usr/lib/ruby/gems/1.9.1/gems/RedCloth-    4.2.9/ext/redcloth_scan/gem_make.out</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Solution:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install ruby1.9.1-dev</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To get started with Octopress, you need to install Git and Ruby. If you are not a Ruby programmer I will recommed the light-weight and more flexible rbenv instead of RVM.</p>
+
+<p>This is how a blog post look like.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---
+</span><span class='line'>title: Title Of Post
+</span><span class='line'>layout: post
+</span><span class='line'>date:
+</span><span class='line'>comments: true
+</span><span class='line'>categories:
+</span><span class='line'>---
+</span><span class='line'>Simple markdown syntax. *italic*, **bold**, [click here](http://github.com), #header1, ##header2 etc.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To conclude a day&#8217;s work. I highly recommend all programmers who have in mind to showcare their work to be on Github Pages.</p>
+</div>
 
 <div class="meta">
 	
 </div>
 </article>
 
-<nav id="pagenavi">
-    
-    
-    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
-</nav>
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
 
     </div>
     <footer id="footer">

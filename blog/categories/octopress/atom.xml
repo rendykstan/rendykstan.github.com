@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Product Management]]></title>
-  <link href="http://rendykstan.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Octopress | Product Management]]></title>
+  <link href="http://rendykstan.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://rendykstan.github.com/"/>
   <updated>2013-03-09T20:33:29+08:00</updated>
   <id>http://rendykstan.github.com/</id>
@@ -27,9 +27,7 @@
 <!-- more -->
 
 
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -42,32 +40,40 @@
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>ravi@taraka:sudo gem install RedCloth
-</span><span class='line'>[sudo] password for kuba: 
+</span><span class='line'>[sudo] password for kuba:
 </span><span class='line'>Building native extensions.  This could take a while...
-</span><span class='line'>ERROR:  Error installing RedCloth:
-</span><span class='line'>    ERROR: Failed to build gem native extension.
+</span><span class='line'>ERROR:  Error installing RedCloth:&lt;/p>
 </span><span class='line'>
-</span><span class='line'>        /usr/bin/ruby1.9.1 extconf.rb
-</span><span class='line'>/usr/local/lib/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require': cannot load     such file -- mkmf (LoadError)
-</span><span class='line'>    from /usr/local/lib/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
-</span><span class='line'>    from extconf.rb:1:in `&lt;main>'
+</span><span class='line'>&lt;pre>&lt;code>ERROR: Failed to build gem native extension.
 </span><span class='line'>
-</span><span class='line'>Gem files will remain installed in /usr/lib/ruby/gems/1.9.1/gems/RedCloth-4.2.9 for     inspection.
-</span><span class='line'>Results logged to /usr/lib/ruby/gems/1.9.1/gems/RedCloth-    4.2.9/ext/redcloth_scan/gem_make.out</span></code></pre></td></tr></table></div></figure>
-
+</span><span class='line'>    /usr/bin/ruby1.9.1 extconf.rb
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>/usr/local/lib/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require': cannot load     such file -- mkmf (LoadError)&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>from /usr/local/lib/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+</span><span class='line'>from extconf.rb:1:in `&lt;main&gt;'
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>Gem files will remain installed in /usr/lib/ruby/gems/1.9.1/gems/RedCloth-4.2.9 for     inspection.
+</span><span class='line'>Results logged to /usr/lib/ruby/gems/1.9.1/gems/RedCloth-    4.2.9/ext/redcloth_scan/gem_make.out</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Solution:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install ruby1.9.1-dev</span></code></pre></td></tr></table></div></figure>
-
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install ruby1.9.1-dev</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>To get started with Octopress, you need to install Git and Ruby. If you are not a Ruby programmer I will recommed the light-weight and more flexible rbenv instead of RVM.</p>
 
 <p>This is how a blog post look like.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<h2><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -75,17 +81,20 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>---
-</span><span class='line'>title: Title Of Post
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/h2>
+</span><span class='line'>
+</span><span class='line'>&lt;p>title: Title Of Post
 </span><span class='line'>layout: post
 </span><span class='line'>date:
-</span><span class='line'>comments: true
-</span><span class='line'>categories:
-</span><span class='line'>---
-</span><span class='line'>Simple markdown syntax. *italic*, **bold**, [click here](http://github.com), #header1, ##header2 etc.</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>comments: true&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h2>categories:&lt;/h2>
+</span><span class='line'>
+</span><span class='line'>&lt;p>Simple markdown syntax. &lt;em>italic&lt;/em>, &lt;strong>bold&lt;/strong>, &lt;a href="http://github.com">click here&lt;/a>, #header1, ##header2 etc.</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-
-<p>To conclude a day&#8217;s work. I highly recommend all programmers who have in mind to showcare their work to be on Github Pages.</p>
+<p>To conclude a day's work. I highly recommend all programmers who have in mind to showcare their work to be on Github Pages.</p>
 ]]></content>
   </entry>
   
