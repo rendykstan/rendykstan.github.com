@@ -6,7 +6,7 @@
 	<title>Coding and Agile Processes</title>
     <meta name="author" content="Rendy Tan">
     
-	<meta name="description" content="Published on: Mar 9th, 2013 Tags: Github Pages, Octopress Hi there, let me introduce myself. I am Rendy, currently working at Human Network Labs. We &hellip;">
+	<meta name="description" content="Published on: Mar 16th, 2013 Tags: python, pythonbrew, rbenv, ruby, virtual environments Today, I went into a problem running pythonbrew after &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -101,6 +101,66 @@
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/03/16/running-rbenv-and-pythonbrew-side-by-side/">
+		
+			Running Rbenv and Pythonbrew Side by Side</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-16T17:36:00+08:00" pubdate data-updated="true">Mar 16<span>th</span>, 2013</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/pythonbrew/'>pythonbrew</a>, <a class='category' href='/blog/categories/rbenv/'>rbenv</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/virtual-environments/'>virtual environments</a>
+
+
+</div>
+    </div>
+		<p>Today, I went into a problem running pythonbrew after installing ruby using rbenv for setting up this blog last week. It took me awhile to figure out that rbenv was the problem. ~/.bashrc and ~/.profile were the only shell initialization files before rbenv came into the picture.</p>
+
+<figure class='code'><figcaption><span>~/.profile</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if [ -n "$BASH_VERSION" ]; then
+</span><span class='line'>    # include .bashrc if it exists
+</span><span class='line'>    if [ -f "$HOME/.bashrc" ]; then
+</span><span class='line'>        . "$HOME/.bashrc"
+</span><span class='line'>    fi
+</span><span class='line'>fi</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+
+		
+		<a href="/blog/2013/03/16/running-rbenv-and-pythonbrew-side-by-side/" class="more-link">Read on &rarr;</a>
+	</div>
+
+<div class="meta">
+	
+</div>
+</article>
 
 
     <article class="post">

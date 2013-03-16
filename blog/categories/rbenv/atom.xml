@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rbenv | Coding and Agile Processes]]></title>
+  <link href="http://rendykstan.github.com/blog/categories/rbenv/atom.xml" rel="self"/>
+  <link href="http://rendykstan.github.com/"/>
+  <updated>2013-03-16T18:52:11+08:00</updated>
+  <id>http://rendykstan.github.com/</id>
+  <author>
+    <name><![CDATA[Rendy Tan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Running rbenv and pythonbrew side by side]]></title>
+    <link href="http://rendykstan.github.com/blog/2013/03/16/running-rbenv-and-pythonbrew-side-by-side/"/>
+    <updated>2013-03-16T17:36:00+08:00</updated>
+    <id>http://rendykstan.github.com/blog/2013/03/16/running-rbenv-and-pythonbrew-side-by-side</id>
+    <content type="html"><![CDATA[<p>Today, I went into a problem running pythonbrew after installing ruby using rbenv for setting up this blog last week. It took me awhile to figure out that rbenv was the problem. ~/.bashrc and ~/.profile were the only shell initialization files before rbenv came into the picture.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>~/.profile</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if [ -n "$BASH_VERSION" ]; then&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code># include .bashrc if it exists
+</span><span class='line'>if [ -f "$HOME/.bashrc" ]; then
+</span><span class='line'>    . "$HOME/.bashrc"
+</span><span class='line'>fi
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>fi</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<!-- more -->
+
+
+<p>When installing rbenv, ~/.bash_profile is created to point to the path ~/.rbenv where ruby is installed.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>~/.bash_profile</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>export PATH="$HOME/.rbenv/bin:$PATH"
+</span><span class='line'>eval "$(rbenv init -)"</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Later I found out that if ~/.bash_profile exist, files ~/.bash_login and ~/.profile will not be included.</p>
+
+<p>Only one of the files below will be included in the following order.</p>
+
+<ol>
+<li>.bash_profile</li>
+<li>.bash_login</li>
+<li>.profile</li>
+</ol>
+
+
+<p>Including ~/.bashrc in ~/.bash_profile resolved the issue.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>~/.bash_profile</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>export PATH="$HOME/.rbenv/bin:$PATH"
+</span><span class='line'>eval "$(rbenv init -)"
+</span><span class='line'>[ -r ~/.bashrc ] &amp;&amp; source ~/.bashrc</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -3,10 +3,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Blog Archives - Coding and Agile Processes</title>
+	<title>Running rbenv and pythonbrew side by side - Coding and Agile Processes</title>
     <meta name="author" content="Rendy Tan">
     
-	<meta name="description" content="2013 Running rbenv and pythonbrew side by side Mar 16 python, pythonbrew, rbenv, ruby, virtual environments Creating My Github Pages Blog with &hellip;">
+	<meta name="description" content="Today, I went into a problem running pythonbrew after installing ruby using rbenv for setting up this blog last week. It took me awhile to figure out &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -100,46 +100,80 @@
 <div id="toload">
 <!-- begin toload --> 
     <div id="content" class="inner">
-        
+        <article class="post">
+	<h2 class="title">Running Rbenv and Pythonbrew Side by Side</h2>
+	<div class="entry-content"><p>Today, I went into a problem running pythonbrew after installing ruby using rbenv for setting up this blog last week. It took me awhile to figure out that rbenv was the problem. ~/.bashrc and ~/.profile were the only shell initialization files before rbenv came into the picture.</p>
+
+<figure class='code'><figcaption><span>~/.profile</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if [ -n "$BASH_VERSION" ]; then
+</span><span class='line'>    # include .bashrc if it exists
+</span><span class='line'>    if [ -f "$HOME/.bashrc" ]; then
+</span><span class='line'>        . "$HOME/.bashrc"
+</span><span class='line'>    fi
+</span><span class='line'>fi</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- more -->
+
+
+<p>When installing rbenv, ~/.bash_profile is created to point to the path ~/.rbenv where ruby is installed.</p>
+
+<figure class='code'><figcaption><span>~/.bash_profile</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>export PATH="$HOME/.rbenv/bin:$PATH"
+</span><span class='line'>eval "$(rbenv init -)"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Later I found out that if ~/.bash_profile exist, files ~/.bash_login and ~/.profile will not be included.</p>
+
+<p>Only one of the files below will be included in the following order.</p>
+
+<ol>
+<li>.bash_profile</li>
+<li>.bash_login</li>
+<li>.profile</li>
+</ol>
+
+
+<p>Including ~/.bashrc in ~/.bash_profile resolved the issue.</p>
+
+<figure class='code'><figcaption><span>~/.bash_profile</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>export PATH="$HOME/.rbenv/bin:$PATH"
+</span><span class='line'>eval "$(rbenv init -)"
+</span><span class='line'>[ -r ~/.bashrc ] && source ~/.bashrc</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+<div class="meta">
 	
-
-
-	
-	
-	<section class="archives"><h1 class="year">2013</h1>
-
-<article>
-	<h2 class="title"><a href="/blog/2013/03/16/running-rbenv-and-pythonbrew-side-by-side/">Running rbenv and pythonbrew side by side</a></h2>
-	<div class="meta">
-		<span class="date">Mar 16</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/pythonbrew/'>pythonbrew</a>, <a class='category' href='/blog/categories/rbenv/'>rbenv</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/virtual-environments/'>virtual environments</a>
-
-
-</span>
-	    
-	</div>
+</div>
 </article>
 
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
 	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2013/03/09/creating-my-github-pages-blog/">Creating My Github Pages Blog with Octopress</a></h2>
-	<div class="meta">
-		<span class="date">Mar  9</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/github-pages/'>Github Pages</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>
-
-
-</span>
-	    
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
 	</div>
-</article>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
 
     </div>
     <footer id="footer">
