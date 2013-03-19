@@ -1,0 +1,225 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Remove trailing dot in domain name - Coding and Agile Processes</title>
+    <meta name="author" content="Rendy Tan">
+    
+	<meta name="description" content="Yesterday, I read an article talking about fully qualified domain names and its possible issues. Each domain name in fact has a dot at the end. The &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Coding and Agile Processes" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.ico" rel="shortcut icon">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+    <link href='http://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <script type="text/javascript" src="/javascripts/jquery-tapir.js"></script>
+
+    <!-- remove or comment it to disable ajaxification -->   
+    <script src="/javascripts/ajaxify.js"></script>
+   
+    
+    
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'rendykstan']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+</head>
+
+
+<body>
+    <div id="wrapper">
+    <header id="header" class="inner"><!-- for more effects see _animate.scss -->
+<h1 class="animated bounceInDown">
+    <div id="headerbg">
+        Rendy Tan
+    </div>
+</h1>
+<br>
+
+<ul id="social-links" style="text-align:center">
+  
+  <!-- GitHub -->
+  <li>
+  <a href="https://github.com/rendykstan" class="github" title="Github"></a>
+  </li>
+  
+  
+  
+  
+  <!-- Twitter -->
+  <li>
+  <a href="http://www.twitter.com/rendykstan" class="twitter" title="Twitter"></a>
+  </li>
+  
+  
+  <!-- LinkedIn -->
+  <li>
+  <a href="http://www.linkedin.com/in/rendykstan" class="linkedin" title="LinkedIn"></a>
+  </li>
+  
+  
+  
+  
+</ul>
+
+
+<!-- use full url including 'index.html' for navigation bar if you are using ajax -->
+<ul id="nav">
+	<li id="ajax"><a href="/index.html">Home</a></li>
+	<li id="ajax"><a href="/blog/archives/index.html">Archives</a></li>
+    <li><a href="/atom.xml">RSS</a></li>
+    
+    <li>
+    <div id="dark">
+        <form method="get" action="/search.html" id="search">
+            <input name="query" type="text" placeholder="Search..." x-webkit-speech />
+        </form>
+    </div>
+    </li>
+        
+</ul>
+
+
+
+
+</header>
+
+<div id="toload">
+<!-- begin toload --> 
+    <div id="content" class="inner">
+        <article class="post">
+	<h2 class="title">Remove Trailing Dot in Domain Name</h2>
+	<div class="entry-content"><p>Yesterday, I read an <a href="http://saynt2day.blogspot.ru/2013/03/danger-of-trailing-dot-in-domain-name.html">article</a> talking about <a href="http://en.wikipedia.org/wiki/Fully_qualified_domain_name">fully qualified domain names</a> and its possible issues. Each domain name in fact has a dot at the end. The internet browser can either load rendykstan.github.com or <a href="http://rendykstan.github.com.">rendykstan.github.com.</a>. As you can see rendykstan.github.com. loads a 404.</p>
+
+<!-- more -->
+
+
+<p>The workaround introduced by the article requires you to have some knowledge in configuring Apache and enabling mod_rewrite.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ravi@taraka:~$ sudo a2enmod rewrite
+</span><span class='line'>Enabling module rewrite.
+</span><span class='line'>Run '/etc/init.d/apache2 restart' to activate new configuration!
+</span><span class='line'>ravi@taraka:~$ sudo service apache2 restart
+</span><span class='line'> * Restarting web server apache2                                                                                                                                         ... waiting .                                                                                                                                                   [ OK ]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you are like me, uses a vhost. You will need to go to the <em>sites-available</em> directory to locate your vhost file and add the block of code below under your vhost. Change <em>google</em> to your domain.</p>
+
+<figure class='code'><figcaption><span>/etc/apache2/sites-available/vhost</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Options +FollowSymLinks
+</span><span class='line'>RewriteEngine on
+</span><span class='line'>RewriteCond %{HTTP_HOST} !^google\.com$
+</span><span class='line'>RewriteRule ^(.*)$ http://google.com$1 [L,R=301]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A quick check to see if it is working using *curl.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ravi@taraka:~$ curl -I http://google.com.
+</span><span class='line'>HTTP/1.1 301 Moved Permanently
+</span><span class='line'>Location: http://www.google.com/
+</span><span class='line'>Content-Type: text/html; charset=UTF-8
+</span><span class='line'>Date: Tue, 19 Mar 2013 16:43:45 GMT
+</span><span class='line'>Expires: Thu, 18 Apr 2013 16:43:45 GMT
+</span><span class='line'>Cache-Control: public, max-age=2592000
+</span><span class='line'>Server: gws
+</span><span class='line'>Content-Length: 219
+</span><span class='line'>X-XSS-Protection: 1; mode=block
+</span><span class='line'>X-Frame-Options: SAMEORIGIN</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+<div class="meta">
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+    </div>
+    <footer id="footer">
+    <div style="display:inline">
+    Copyright &copy; 2013
+
+    Rendy Tan
+. Powered by <a href="http://octopress.org">Octopress</a> | 
+    Theme <a href="http://github.com/panks/fabric">fabric</a> by <a href="http://panks.me">Pankaj Kumar</a>
+</div>
+
+
+    </footer>
+    <script src="/javascripts/fabric.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+<!-- end toload --> 
+</div>
+</div>
+<script src="/javascripts/jquery.ui.totop.js" type="text/javascript"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+;(function($){$().UItoTop({easingType:'easeOutCirc'});})(jQuery); 
+/*]]>*/
+</script><!-- remove it to remove the scroll to top button -->
+</body>
+</html>

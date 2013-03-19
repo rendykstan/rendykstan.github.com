@@ -11,6 +11,12 @@
         <lastmod>2013-03-16T18:52:11+08:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://rendykstan.github.com/blog/2013/03/19/remove-trailing-dot-in-domain-name/
+        </loc>
+        <lastmod>2013-03-20T00:45:16+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://rendykstan.github.com/robots.txt</loc>
         <lastmod>2013-03-09T16:57:44+08:00</lastmod>
     </url>
@@ -20,10 +26,10 @@
     </url>
     <url>
         <loc>http://rendykstan.github.com/blog/archives/</loc>
-        <lastmod>2013-03-16T18:52:11+08:00</lastmod>
+        <lastmod>2013-03-20T00:45:16+08:00</lastmod>
     </url>
     <url>
         <loc>http://rendykstan.github.com/</loc>
-        <lastmod>2013-03-16T18:52:11+08:00</lastmod>
+        <lastmod>2013-03-20T00:45:16+08:00</lastmod>
     </url>
 </urlset>

@@ -4,7 +4,7 @@
   <title><![CDATA[Coding and Agile Processes]]></title>
   <link href="http://rendykstan.github.com/atom.xml" rel="self"/>
   <link href="http://rendykstan.github.com/"/>
-  <updated>2013-03-17T00:00:56+08:00</updated>
+  <updated>2013-03-20T00:46:11+08:00</updated>
   <id>http://rendykstan.github.com/</id>
   <author>
     <name><![CDATA[Rendy Tan]]></name>
@@ -12,6 +12,73 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Remove trailing dot in domain name]]></title>
+    <link href="http://rendykstan.github.com/blog/2013/03/19/remove-trailing-dot-in-domain-name/"/>
+    <updated>2013-03-19T21:26:00+08:00</updated>
+    <id>http://rendykstan.github.com/blog/2013/03/19/remove-trailing-dot-in-domain-name</id>
+    <content type="html"><![CDATA[<p>Yesterday, I read an <a href="http://saynt2day.blogspot.ru/2013/03/danger-of-trailing-dot-in-domain-name.html">article</a> talking about <a href="http://en.wikipedia.org/wiki/Fully_qualified_domain_name">fully qualified domain names</a> and its possible issues. Each domain name in fact has a dot at the end. The internet browser can either load rendykstan.github.com or <a href="http://rendykstan.github.com.">rendykstan.github.com.</a>. As you can see rendykstan.github.com. loads a 404.</p>
+
+<!-- more -->
+
+
+<p>The workaround introduced by the article requires you to have some knowledge in configuring Apache and enabling mod_rewrite.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ravi@taraka:~$ sudo a2enmod rewrite
+</span><span class='line'>Enabling module rewrite.
+</span><span class='line'>Run '/etc/init.d/apache2 restart' to activate new configuration!
+</span><span class='line'>ravi@taraka:~$ sudo service apache2 restart
+</span><span class='line'> * Restarting web server apache2                                                                                                                                         ... waiting .                                                                                                                                                   [ OK ]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you are like me, uses a vhost. You will need to go to the <em>sites-available</em> directory to locate your vhost file and add the block of code below under your vhost. Change <em>google</em> to your domain.</p>
+
+<figure class='code'><figcaption><span>/etc/apache2/sites-available/vhost</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Options +FollowSymLinks
+</span><span class='line'>RewriteEngine on
+</span><span class='line'>RewriteCond %{HTTP_HOST} !^google\.com$
+</span><span class='line'>RewriteRule ^(.*)$ http://google.com$1 [L,R=301]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A quick check to see if it is working using *curl.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ravi@taraka:~$ curl -I http://google.com.
+</span><span class='line'>HTTP/1.1 301 Moved Permanently
+</span><span class='line'>Location: http://www.google.com/
+</span><span class='line'>Content-Type: text/html; charset=UTF-8
+</span><span class='line'>Date: Tue, 19 Mar 2013 16:43:45 GMT
+</span><span class='line'>Expires: Thu, 18 Apr 2013 16:43:45 GMT
+</span><span class='line'>Cache-Control: public, max-age=2592000
+</span><span class='line'>Server: gws
+</span><span class='line'>Content-Length: 219
+</span><span class='line'>X-XSS-Protection: 1; mode=block
+</span><span class='line'>X-Frame-Options: SAMEORIGIN</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Running rbenv and pythonbrew side by side]]></title>
