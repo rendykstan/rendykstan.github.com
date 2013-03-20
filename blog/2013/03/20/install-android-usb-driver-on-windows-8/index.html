@@ -3,10 +3,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Blog Archives - Coding and Agile Processes</title>
+	<title>Install Android USB driver on Windows 8 - Coding and Agile Processes</title>
     <meta name="author" content="Rendy Tan">
     
-	<meta name="description" content="2013 Install Android USB driver on Windows 8 Mar 20 android, usb driver, windows 8 Remove trailing dot in domain name Mar 19 apache, ubuntu, virtual &hellip;">
+	<meta name="description" content="With a broken power button on my Nexus S running Jelly Bean, the only way I can do a screen capture for the app we are releasing to the play store is &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -105,82 +105,57 @@
 <div id="toload">
 <!-- begin toload --> 
     <div id="content" class="inner">
-        
+        <article class="post">
+	<h2 class="title">Install Android USB Driver on Windows 8</h2>
+	<div class="entry-content"><p>With a broken power button on my Nexus S running Jelly Bean, the only way I can do a screen capture for the app we are releasing to the play store is to use Dalvik Debug Monitor Server (DDMS) tool in the Android SDK.</p>
+
+<p>In the latest Android SDK, Google deprecated DDMS and introduced a new tool call Monitor as a replacement. Enabling &#8220;USB Debugging&#8221; on my Nexus S, it fails to show up on the device list.</p>
+
+<!-- more -->
+
+
+<p>After some troubleshooting, we found out that the problem is because of a missing usb driver that I need to install on Windows 8. Here comes the problem. Windows is unable to search for a suitable driver online. The Samsung USB driver is only for Windows 7 and below. There are complex solutions that are more than a page long and many brick their phones trying.</p>
+
+<p><strong>The solution:</strong></p>
+
+<blockquote><p>If your device is one of the Android Developer Phones (ADP), a Nexus One, or a Nexus S, then you need the Google USB Driver, instead of an OEM driver. The Galaxy Nexus driver, however, is distributed by Samsung (listed as model SCH-I515).</p><footer><strong>developer.android.com</strong> <cite><a href='http://developer.android.com/tools/extras/oem-usb.html'>OEM USB Drivers</a></cite></footer></blockquote>
+
+
+<p><strong>How to install the driver on Windows 8:</strong></p>
+
+<ol>
+<li>Connect your Android-powered device to your computer&#8217;s USB port.</li>
+<li>Right-click on Computer from your desktop or Windows Explorer, and select Properties.</li>
+<li>Select Device Manager in the left pane.</li>
+<li>Locate and expand Other device in the list.</li>
+<li>Right-click the device name (such as Nexus S) and select Update Driver Software. This will launch the Hardware Update Wizard.</li>
+<li>Select Browse my computer for driver software and click Next.</li>
+<li>Click Browse and locate the USB driver folder. (The Google USB Driver is located in \extras\google\usb_driver.)</li>
+<li>Click Next to install the driver.</li>
+</ol>
+
+
+<p>After installing the driver, Nexus S will appear in the device list.</p>
+</div>
+
+<div class="meta">
 	
-
-
-	
-	
-	<section class="archives"><h1 class="year">2013</h1>
-
-<article>
-	<h2 class="title"><a href="/blog/2013/03/20/install-android-usb-driver-on-windows-8/">Install Android USB driver on Windows 8</a></h2>
-	<div class="meta">
-		<span class="date">Mar 20</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/android/'>android</a>, <a class='category' href='/blog/categories/usb-driver/'>usb driver</a>, <a class='category' href='/blog/categories/windows-8/'>windows 8</a>
-
-
-</span>
-	    
-	</div>
+</div>
 </article>
 
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
 	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2013/03/19/remove-trailing-dot-in-domain-name/">Remove trailing dot in domain name</a></h2>
-	<div class="meta">
-		<span class="date">Mar 19</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/apache/'>apache</a>, <a class='category' href='/blog/categories/ubuntu/'>ubuntu</a>, <a class='category' href='/blog/categories/virtual-host/'>virtual host</a>
-
-
-</span>
-	    
-	</div>
-</article>
-
 	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2013/03/16/running-rbenv-and-pythonbrew-side-by-side/">Running rbenv and pythonbrew side by side</a></h2>
-	<div class="meta">
-		<span class="date">Mar 16</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/pythonbrew/'>pythonbrew</a>, <a class='category' href='/blog/categories/rbenv/'>rbenv</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/virtual-environments/'>virtual environments</a>
-
-
-</span>
-	    
-	</div>
-</article>
-
+	<a class="addthis_button_tweet"></a>
 	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2013/03/09/creating-my-github-pages-blog/">Creating My Github Pages Blog with Octopress</a></h2>
-	<div class="meta">
-		<span class="date">Mar  9</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/github-pages/'>Github Pages</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>
-
-
-</span>
-	    
+	
+	<a class="addthis_counter addthis_pill_style"></a>
 	</div>
-</article>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
 
     </div>
     <footer id="footer">
