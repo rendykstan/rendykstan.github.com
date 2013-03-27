@@ -4,7 +4,7 @@
   <title><![CDATA[Coding and Agile Processes]]></title>
   <link href="http://rendykstan.github.com/atom.xml" rel="self"/>
   <link href="http://rendykstan.github.com/"/>
-  <updated>2013-03-21T00:34:14+08:00</updated>
+  <updated>2013-03-28T01:50:31+08:00</updated>
   <id>http://rendykstan.github.com/</id>
   <author>
     <name><![CDATA[Rendy Tan]]></name>
@@ -12,6 +12,64 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Exploring Leveldb embedded database with Python Part 1]]></title>
+    <link href="http://rendykstan.github.com/blog/2013/03/28/exploring-leveldb-embedded-database-with-python-part-1/"/>
+    <updated>2013-03-28T00:25:00+08:00</updated>
+    <id>http://rendykstan.github.com/blog/2013/03/28/exploring-leveldb-embedded-database-with-python-part-1</id>
+    <content type="html"><![CDATA[<p>I got to know about <a href="https://code.google.com/p/leveldb/">LevelDB</a> from the guys of <a href="http://nodeup.com/">Nodeup</a>, a podcast program for node.js and they shared load of goodness about the project and it really got me excited to start exploring. You can heard the podcast <a href="http://nodeup.com/fortyone">here</a>. In short, <a href="http://google-opensource.blogspot.sg/2011/07/leveldb-fast-persistent-key-value-store.html">LevelDB</a> is an open source on-disk key-value store written by <a href="https://plus.google.com/118227548810368513262/about">Jeffrey Dean</a> and <a href="https://plus.google.com/105332691637769400620/about">Sanjay Ghemawat</a> of Google.</p>
+
+<!-- more -->
+
+
+<p>Check out the <a href="http://leveldb.googlecode.com/svn/trunk/doc/benchmark.html">benchmarks</a>. LevelDB performs very well for sequential writes, bulk reads and writes. Not as good for random reads.</p>
+
+<p><a href="http://basho.com/riak/">Riak</a> another on-disk key-value database adopted LevelDB through <a href="https://github.com/basho/eleveldb">ElevelDB</a> as an alternative storage engine.</p>
+
+<p>Now let&#8217;s get our hands dirty!</p>
+
+<p><a href="https://code.google.com/p/leveldb/downloads/list">Download</a> LevelDB and follow the commands below for installation. <em>Do note that the installation location is not specified</em>.</p>
+
+<figure class='code'><figcaption><span>Install LevelDB</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ make 
+</span><span class='line'>$ sudo cp libleveldb.a /usr/local/lib 
+</span><span class='line'>$ sudo cp -r include/leveldb /usr/local/include</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="https://github.com/wbolster/plyvel">Plyvel</a> is the python wrapper for LevelDB and it is very well <a href="https://plyvel.readthedocs.org/">documented</a>.</p>
+
+<figure class='code'><figcaption><span>Install Plyvel</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo apt-get install libleveldb1 libleveldb-dev 
+</span><span class='line'>$ pip install plyvel 
+</span><span class='line'>$ python -c 'import plyvel'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>With a couple of lines you can create the DB, write a record, retrieve it and print it out.</p>
+
+<figure class='code'><figcaption><span>test_script.py </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='py'><span class='line'><span class="kn">import</span> <span class="nn">plyvel</span>
+</span><span class='line'><span class="n">db</span> <span class="o">=</span> <span class="n">plyvel</span><span class="o">.</span><span class="n">DB</span><span class="p">(</span><span class="s">&#39;/tmp/hello_world/&#39;</span><span class="p">,</span> <span class="n">create_if_missing</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</span><span class='line'><span class="n">key</span> <span class="o">=</span> <span class="s">&#39;hello world&#39;</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello World&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">print</span> <span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you can see LevelDB is a very modular, it can be coupled with other technologies to handle different storage needs.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Install Android USB driver on Windows 8]]></title>
