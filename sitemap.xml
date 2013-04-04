@@ -29,6 +29,12 @@
         <lastmod>2013-03-28T01:47:55+08:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://rendykstan.github.com/blog/2013/04/04/postgresql-vacuum-and-analyze-maintenance-and-performance/
+        </loc>
+        <lastmod>2013-04-05T00:09:42+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://rendykstan.github.com/robots.txt</loc>
         <lastmod>2013-03-09T16:57:44+08:00</lastmod>
     </url>
@@ -38,10 +44,10 @@
     </url>
     <url>
         <loc>http://rendykstan.github.com/blog/archives/</loc>
-        <lastmod>2013-03-28T01:47:55+08:00</lastmod>
+        <lastmod>2013-04-05T00:09:42+08:00</lastmod>
     </url>
     <url>
         <loc>http://rendykstan.github.com/</loc>
-        <lastmod>2013-03-28T01:47:55+08:00</lastmod>
+        <lastmod>2013-04-05T00:09:42+08:00</lastmod>
     </url>
 </urlset>

@@ -6,7 +6,7 @@
 	<title>Coding and Agile Processes</title>
     <meta name="author" content="Rendy Tan">
     
-	<meta name="description" content="Published on: Mar 28th, 2013 Tags: ElevelDB, Leveldb, Node.js, Python, Riak I got to know about LevelDB from the guys of Nodeup, a podcast program &hellip;">
+	<meta name="description" content="Published on: Apr 4th, 2013 Tags: Crontab, Postgresql, Python I have been using Postgresql for a couple of years now and I am very happy with its &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -106,6 +106,53 @@
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/04/04/postgresql-vacuum-and-analyze-maintenance-and-performance/">
+		
+			Postgresql Vacuum and Analyze, Maintenance and Performance</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-04T23:18:00+08:00" pubdate data-updated="true">Apr 4<span>th</span>, 2013</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/crontab/'>Crontab</a>, <a class='category' href='/blog/categories/postgresql/'>Postgresql</a>, <a class='category' href='/blog/categories/python/'>Python</a>
+
+
+</div>
+    </div>
+		<p>I have been using Postgresql for a couple of years now and I am very happy with its performance and growth as a open source relational database. Today I will like to share with you how Vacuum and Analyze can help your database perform better.</p>
+
+<p><a href="http://www.postgresql.org/docs/9.1/static/sql-vacuum.html">VACUUM</a> frees the disk space occupied by your database deletes and updates. When you delete or update a record in your table, it does not get removed and it remains until a VACUUM is done. For frequently-updated tables, VACUUM is highly recommended.</p>
+
+<p><a href="http://www.postgresql.org/docs/9.1/static/sql-analyze.html">ANALYZE</a> helps improve your queries by collecting statistics about the contents of tables in the database. The results of the analysis are stored in the <em>pg_statistic</em> system catalog. With these statistics, the query planner use it to determine the most efficient execution plans, thus improve the performance of your queries.</p>
+
+
+		
+		<a href="/blog/2013/04/04/postgresql-vacuum-and-analyze-maintenance-and-performance/" class="more-link">Read on &rarr;</a>
+	</div>
+
+<div class="meta">
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -298,55 +345,10 @@
 </div>
 </article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/03/09/creating-my-github-pages-blog/">
-		
-			Creating My Github Pages Blog With Octopress</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-09T18:57:00+08:00" pubdate data-updated="true">Mar 9<span>th</span>, 2013</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/github-pages/'>Github Pages</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>
-
-
-</div>
-    </div>
-		<p>Hi there, let me introduce myself. I am Rendy, currently working at <a href="http://humannetworklabs.com">Human Network Labs</a>. We help connect me, you and everything around us with my precise positioning technology. Ever since Github introduced <a href="http://pages.github.com/">Pages</a>, I wanted to start my product management and technology blog. Today I finally found some time to work on it.</p>
-
-<p>One of the ways to create Github Pages is to use Jekyll, a static site generator that generates a static version of the blog. Instead of using a dynamic scripting language (such as PHP, Python) that renders your blog posts as you load the website. Jekyll generate an html only version of your site.</p>
-
-<p>Since I am new to Jekyll, I did a quick search for ways to get started and I found <a href="http://octopress.org/">Octopress</a> a blogging framework for Github Pages! Very well <a href="http://octopress.org/docs/">documented</a>, following the instructions are a breeze except for one problem during <strong>bundle install</strong>.</p>
-
-
-		
-		<a href="/blog/2013/03/09/creating-my-github-pages-blog/" class="more-link">Read on &rarr;</a>
-	</div>
-
-<div class="meta">
-	
-</div>
-</article>
-
 <nav id="pagenavi">
     
+    
+        <a href="/blog/page/2/" class="next">Next</a>
     
     <div class="center"><a href="/blog/archives">Blog Archives</a></div>
 </nav>

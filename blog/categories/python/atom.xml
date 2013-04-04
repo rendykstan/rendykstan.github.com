@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Coding and Agile Processes]]></title>
   <link href="http://rendykstan.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://rendykstan.github.com/"/>
-  <updated>2013-03-28T01:50:31+08:00</updated>
+  <updated>2013-04-05T00:09:58+08:00</updated>
   <id>http://rendykstan.github.com/</id>
   <author>
     <name><![CDATA[Rendy Tan]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Postgresql Vacuum and Analyze, Maintenance and Performance]]></title>
+    <link href="http://rendykstan.github.com/blog/2013/04/04/postgresql-vacuum-and-analyze-maintenance-and-performance/"/>
+    <updated>2013-04-04T23:18:00+08:00</updated>
+    <id>http://rendykstan.github.com/blog/2013/04/04/postgresql-vacuum-and-analyze-maintenance-and-performance</id>
+    <content type="html"><![CDATA[<p>I have been using Postgresql for a couple of years now and I am very happy with its performance and growth as a open source relational database. Today I will like to share with you how Vacuum and Analyze can help your database perform better.</p>
+
+<p><a href="http://www.postgresql.org/docs/9.1/static/sql-vacuum.html">VACUUM</a> frees the disk space occupied by your database deletes and updates. When you delete or update a record in your table, it does not get removed and it remains until a VACUUM is done. For frequently-updated tables, VACUUM is highly recommended.</p>
+
+<p><a href="http://www.postgresql.org/docs/9.1/static/sql-analyze.html">ANALYZE</a> helps improve your queries by collecting statistics about the contents of tables in the database. The results of the analysis are stored in the <em>pg_statistic</em> system catalog. With these statistics, the query planner use it to determine the most efficient execution plans, thus improve the performance of your queries.</p>
+
+<!-- more -->
+
+
+<p>During routine maintenance, VACUUM ANALYZE are used together to free up storage and improve the performance of your queries.</p>
+
+<p>VACUUM FULL ANALYZE is recommended for tables that have just went through a bulk delete or update. Do note that when you run VACUUM FULL, the affected tables will be locked until the process is done and extra storage space is required as a temp store. Normal VACUUM do not lock the tables, but does has its overheads while running along side a live database.</p>
+
+<p><a href="http://www.postgresql.org/docs/9.1/static/routine-vacuuming.html#AUTOVACUUM">The Autovacuum Daemon</a> is turned on by default and it is optimized to suit most scenarios. The daemon determines if the table requires VACUUM or ANALYZE or BOTH and run it in the background. Even though it is turned on, you will noticed that tables with lesser records are not part of the Autovacuum and Autoanalyze routine.</p>
+
+<p>How do we know?</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SELECT relname, last_analyze, last_vacuum, last_autoanalyze, last_autovacuum FROM pg_stat_all_tables
+</span><span class='line'>WHERE schemaname = 'public'
+</span><span class='line'>ORDER BY relname;</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>I am working on a python script with the help of Crontab to VACUUM ANALYZE the tables not covered by the daemon on the daily basis. Will update this post once I am done.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Exploring Leveldb embedded database with Python Part 1]]></title>
