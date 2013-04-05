@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Coding and Agile Processes]]></title>
+  <title><![CDATA[Coding, Design and Agile Processes]]></title>
   <link href="http://rendykstan.github.com/atom.xml" rel="self"/>
   <link href="http://rendykstan.github.com/"/>
-  <updated>2013-04-05T00:09:58+08:00</updated>
+  <updated>2013-04-05T18:53:24+08:00</updated>
   <id>http://rendykstan.github.com/</id>
   <author>
     <name><![CDATA[Rendy Tan]]></name>
@@ -43,7 +43,60 @@
 </span><span class='line'>ORDER BY relname;</span></code></pre></td></tr></table></div></figure>
 
 
-<p>I am working on a python script with the help of Crontab to VACUUM ANALYZE the tables not covered by the daemon on the daily basis. Will update this post once I am done.</p>
+<p>Here is the python script that VACUUM ANALYZE the tables not covered by the daemon. You can set the number of days you want to check if Postgresql has already done a Autovacuum.</p>
+
+<div><script src='https://gist.github.com/5318027.js?file=vacuum_analyze.py'></script>
+<noscript><pre><code>#!/usr/bin/python
+import psycopg2
+import sys
+
+con = None
+query = ''
+
+try:
+    if len(sys.argv) == 6:
+      
+        host = sys.argv[1]
+        database = sys.argv[2]
+        user = sys.argv[3]
+        password = sys.argv[4]
+        days = sys.argv[5]
+        
+        con = psycopg2.connect(host=host, database=database, user=user, password=password) 
+        cur = con.cursor()
+        cur.execute('SELECT relname ' + 
+                    'FROM pg_stat_all_tables ' +
+                    &quot;WHERE schemaname = 'public' &quot; +
+                    'AND ((last_analyze is NULL ' +
+                    'AND last_autoanalyze is NULL)' +
+                    'OR ((last_analyze &lt; last_autoanalyze OR last_analyze is null) ' +
+                    &quot;AND last_autoanalyze &lt; now() - interval %s) &quot; +
+                    'OR ((last_autoanalyze &lt; last_analyze OR last_autoanalyze is null) ' +
+                    &quot;AND last_analyze &lt; now() - interval %s));&quot;, [days + ' day', days + ' day'])
+        rows = cur.fetchall()
+        con.set_isolation_level(0)
+        for row in rows:
+            query = 'VACUUM ANALYZE %s;' % (row[0])
+            cur.execute(query)
+    else:
+        print 'This script needs 5 arguments [host] [database] [user] [password] [days]'
+
+except psycopg2.DatabaseError, e:
+    print 'Error: %s' % e    
+    sys.exit(1)
+    
+finally:
+    if con:
+        con.close()</code></pre></noscript></div>
+
+
+<p>Schedule the python script to run at 4am (low peak) using Crontab.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$crontab -e
+</span><span class='line'>00 04  * * *   /python/path/python /script/path/vacuum_analyze.py [host] [database] [user] [password] [days]</span></code></pre></td></tr></table></div></figure>
+
 ]]></content>
   </entry>
   
